@@ -94,6 +94,9 @@ dense2 = LayerDense(3, 3)
 # Create Softmax activation (to be used with Dense layer)
 activationSoftmax = ActivationSoftmax()
 
+# Create loss function
+loss_function = LossCategoricalCrossentropy()
+
 # Make a forward pass of the training data through this layer
 dense1.forward(X)
 
@@ -110,3 +113,10 @@ dense2.forward(activationRelu.output)
 activationSoftmax.forward(dense2.output)
 
 print(activationSoftmax.output[:5])
+
+# Perform a forward pass through activation function
+# it takes the output of second dense layer here and returns loss
+loss = loss_function.calculate(activationSoftmax.output, y)
+
+# Print loss value
+print('loss:', loss)
