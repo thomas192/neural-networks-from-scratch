@@ -29,7 +29,7 @@ inputs = np.array([[1, 2, 3, 2.5],
 layer_outputs = np.dot(inputs, weights) + biases  # Dense layer
 relu_outputs = np.maximum(0, layer_outputs)  # ReLU activation
 
-# Backpropagation
+# Backpropagation and optimization
 # ReLU activation - simulates derivative with respect to input values
 # from next layer passed to current layer during backpropagation
 # ReLU derivative equals 1 if the input is greater than 0 and 0 otherwise
@@ -77,3 +77,10 @@ print(dweights)
 dbiases = np.sum(drelu, axis=0, keepdims=True)
 print("\nGradients with respect to biases:")
 print(dbiases)
+
+# Update parameters
+weights += -0.001 * dweights
+biases += -0.001 * dbiases
+print("\nOptimized weights and biases:")
+print(weights)
+print(biases)
