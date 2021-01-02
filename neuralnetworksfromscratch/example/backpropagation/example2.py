@@ -56,3 +56,14 @@ dweights = np.dot(inputs.T, dvalues)
 
 print("\nGradients with respect to weights:")
 print(dweights)
+
+# One bias for each neuron
+# biases are the row vector with a shape (1, neurons)
+biases = np.array([[2, 3, 0.5]])
+
+# dbiases - sum values, do this over samples (first axis)
+# keepdims since this by default will produce a plain list (chapter 4)
+dbiases = np.sum(dvalues, axis=0, keepdims=True)
+
+print("\nGradients with respect to biases:")
+print(dbiases)
