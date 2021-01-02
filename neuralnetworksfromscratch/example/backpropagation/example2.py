@@ -43,3 +43,16 @@ dinputs = np.dot(dvalues, weights.T)
 
 print("\nGradients with respect to inputs:")
 print(dinputs)
+
+# 3 sets of inputs - samples
+inputs = np.array([[1, 2, 3, 2.5],
+                   [2., 5., -1., 2],
+                   [-1.5, 2.7, 3.3, -0.8]])
+
+# Sum weights of given input
+# and multiply by the passed-in gradient for this neuron
+# the derivative with respect to the weights equals inputs
+dweights = np.dot(inputs.T, dvalues)
+
+print("\nGradients with respect to weights:")
+print(dweights)
